@@ -13,15 +13,7 @@ class BookingController extends Controller
      */
     public function index()
     {
-        if (auth()->user()->role === 'admin') {
-            // Admin lihat semua booking
-            $bookings = Booking::with('room', 'user')->get();
-        } else {
-            // User hanya lihat booking miliknya sendiri
-            $bookings = Booking::with('room')
-                ->where('user_id', auth()->id())
-                ->get();
-        }
+        $bookings = Booking::with('room', 'user')->get();
         return view('bookings.index', compact('bookings'));
     }
 
