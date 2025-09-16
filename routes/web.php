@@ -13,11 +13,8 @@ Route::get('/', function () {
 });
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about.index');
 })->name('about');
-
-Route::view('/about', 'about.index')->name('about.index');
-
 
 // Auth routes
 Route::get('/register', [AuthController::class, 'showRegister'])->name('register');
